@@ -10,17 +10,18 @@ var topo = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png'", {
         'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, <a href="http://viewfinderpanoramas.org">SRTM</a> | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC-BY-SA</a>)',
 });
 
-var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+var basic = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
-// L.tileLayer from "https://developers.google.com/maps/documentation/ios-sdk/tiles"
-var satellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+// Tile layer referenced from "https://developers.google.com/maps/documentation/ios-sdk/tiles"
+var satellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 20,
-    subdomains:['mt0','mt1','mt2','mt3']
+    subdomains: ['mt0', 'mt1', 'mt2', 'mt3']
 });
 
-// Add street tile layer to map
+
+// Add satellite tile layer to map
 satellite.addTo(myMap);
 
 // Create layer groups 
@@ -29,7 +30,7 @@ var earthquakes = new L.LayerGroup();
 
 // Create baseMaps
 var baseMaps = {
-    Grayscale: street,
+    Basic: basic,
     Topography: topo,
     Satellite: satellite
 
@@ -41,7 +42,7 @@ var overlays = {
     "Earthquakes": earthquakes
 };
 
-// Set the layer groups and add control to map
+// Set control with layer groups to map
 L.control
     .layers(baseMaps, overlays, { collapsed: false })
     .addTo(myMap);
@@ -75,7 +76,7 @@ d3.json(url).then(function (data) {
         let depth = features[i].geometry.coordinates[2];
         let mag = features[i].properties.mag;
 
-        // Push extracted to values to empty lists
+        // Push extracted values to empty lists
         coords.push(coord);
         depths.push(depth);
         mags.push(mag);
@@ -153,7 +154,7 @@ d3.json(url).then(function (data) {
     // Add earthquakes layer to map
     earthquakes.addTo(myMap);
 
-    // Create legend, assign position and set control to map
+    // Create control for legend and pass a position
     var legend = L.control({
         position: "bottomright"
     });
