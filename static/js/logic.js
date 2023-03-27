@@ -14,8 +14,14 @@ var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 });
 
+// L.tileLayer from "https://developers.google.com/maps/documentation/ios-sdk/tiles"
+var satellite = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+    maxZoom: 20,
+    subdomains:['mt0','mt1','mt2','mt3']
+});
+
 // Add street tile layer to map
-street.addTo(myMap);
+satellite.addTo(myMap);
 
 // Create layer groups 
 var tectonics = new L.LayerGroup();
@@ -23,8 +29,9 @@ var earthquakes = new L.LayerGroup();
 
 // Create baseMaps
 var baseMaps = {
-    "Earthquakes": street,
-    "Topography": topo,
+    Grayscale: street,
+    Topography: topo,
+    Satellite: satellite
 
 };
 
@@ -131,13 +138,13 @@ d3.json(url).then(function (data) {
         onEachFeature: function (feature, layer) {
             layer.bindPopup(
                 `<h2>Location: </h2>`
-                + `<h3>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h3> <hr>`
-                + `<h2>Magnitude: </h2>`
-                + `<h3>${feature.properties.mag}</h3> <hr>`
-                + `<h2>Depth: </h2>`
-                + `<h3>${feature.geometry.coordinates[2]}</h3> <hr>`
-                + `<h2>Time: </h2>`
-                + `<h3>${new Date(feature.properties.time)}</h3> <hr>`
+                + `<h4>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h4> <hr>`
+                + `<h2><b>Magnitude: </b></h2>`
+                + `<h4>${feature.properties.mag}</h4> <hr>`
+                + `<h2><b>Depth: </b></h2>`
+                + `<h4>${feature.geometry.coordinates[2]}</h4> <hr>`
+                + `<h2><b>Date & Time: </b></h2>`
+                + `<h4>${new Date(feature.properties.time)}</h4> <hr>`
             );
         }
         // Add markers to earthquakes layer
