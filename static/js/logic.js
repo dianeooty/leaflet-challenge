@@ -46,7 +46,7 @@ L.control
     .layers(baseMaps, overlays, { collapsed: false })
     .addTo(myMap);
 
-// Create a variable for url
+// Create a variable for url. Dataset for "All earthquakes from the Past 7 days".
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
 
 // Assign variable to empty list/string
