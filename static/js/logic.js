@@ -52,10 +52,32 @@ d3.json(url).then(function (data) {
         depths.push(depth);
         mags.push(mag);
     };
+    
+    function setColor
+    function setRadius
+    function style
 
-    // Display values in console and validate data 
-    console.log("Coordinates:", coords);
-    console.log("Depths:", depths);
-    console.log("Magnitudes:", mags);
-
+    // Use geoJson to filter data
+    L.geoJson(data, {
+        // Create circle markers using features with latitude and longitude
+        pointToLayer: function (feature, latlng) {
+            return L.circleMarker(latlng);
+        },
+        // Set the style for each circle marker using style function
+        style: style,
+        // Create popups for each circle markers with locations, magnitudes, depths and event times
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(
+                `<h2>Location: </h2>`
+                + `<h3>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h3> <hr>`
+                + `<h2>Magnitude: </h2>`
+                + `<h3>${feature.properties.mag}</h3> <hr>`
+                + `<h2>Depth: </h2>`
+                + `<h3>${feature.geometry.coordinates[2]}</h3> <hr>`
+                + `<h2>Time: </h2>`
+                + `<h3>${new Date(feature.properties.time)}</h3> <hr>`
+            );
+        }
+        // Add markers to earthquakes layer
+    }).addTo(earthquakes);
 });
