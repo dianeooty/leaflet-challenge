@@ -186,14 +186,14 @@ d3.json(url).then(function (data) {
         // Create popups for each circle markers with locations, magnitudes, depths and event times
         onEachFeature: function (feature, layer) {
             layer.bindPopup(
-                `<h2>Location: </h2>`
-                + `<h4>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h4> <hr>`
-                + `<h2>Magnitude: </h2>`
-                + `<h4>${feature.properties.mag}</h4> <hr>`
-                + `<h2>Depth: </h2>`
-                + `<h4>${feature.geometry.coordinates[2]}</h4> <hr>`
-                + `<h2>Date & Time: </h2>`
-                + `<h4>${new Date(feature.properties.time)}</h4> <hr>`
+                `<h3>Location: </h3>`
+                + `<h5>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h5> <hr>`
+                + `<h3>Magnitude: </h3>`
+                + `<h5>${feature.properties.mag}</h5> <hr>`
+                + `<h3>Depth: </h3>`
+                + `<h5>${feature.geometry.coordinates[2]}</h5> <hr>`
+                + `<h3>Date & Time: </h3>`
+                + `<h5>${new Date(feature.properties.time)}</h5> <hr>`
             );
         }
         // Add markers to earthquakes layer
