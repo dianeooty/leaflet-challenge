@@ -138,6 +138,45 @@ d3.json(url).then(function (data) {
         // Add markers to earthquakes layer
     }).addTo(earthquakes);
 
-       // Add earthquakes layer to map
-   earthquakes.addTo(myMap);
+    // Add earthquakes layer to map
+    earthquakes.addTo(myMap);
+
+    // Create legend, assign position and set control to map
+    var legend = L.control({
+        position: "bottomright"
+    });
+
+    // Create div add ons for legend
+    legend.onAdd = function () {
+        var div = L.DomUtil.create("div", "info legend");
+
+        // Set depthRanges
+        var depthRanges = [-10, 10, 30, 50, 70, 90];
+
+        // Set colors
+        var colors = [
+            "#98ee00",
+            "#d4ee00",
+            "#eecc00",
+            "#ee9c00",
+            "#ea822c",
+            "#ea2c2c"];
+
+        // Iterate through depthRanges to create labels for each color and add to div container
+        for (var i = 0; i < depthRanges.length; i++) {
+            div.innerHTML += "<i style='background: "
+                + colors[i]
+                + "'></i> "
+                + depthRanges[i]
+                + (depthRanges[i + 1] ? "&ndash;" + depthRanges[i + 1] + "<br>" : "+");
+        }
+        return div;
+    };
+
+    // Add legend map
+    legend.addTo(myMap);
+
 });
+
+
+
