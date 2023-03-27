@@ -205,7 +205,7 @@ d3.json(url2).then(function (tectonicData) {
         };
     };
 
-    // Use geoJson to set style and add to tectonics layer
+    // Use geoJson to set style for linestrings and add to tectonics layer
     L.geoJson(tectonicData, {
         style: style
     })
