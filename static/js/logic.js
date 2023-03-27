@@ -17,6 +17,7 @@ var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Add street tile layer to map
 street.addTo(myMap);
 
+var earthquakes = new L.LayerGroup();
 
 // Create a variable for url
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
@@ -52,10 +53,46 @@ d3.json(url).then(function (data) {
         depths.push(depth);
         mags.push(mag);
     };
-    
-    function setColor
-    function setRadius
-    function style
+
+    // Create function for color based on depth range
+    function setColor(depth) {
+        switch (true) {
+            case depth > 90:
+                return "#ea2c2c";
+            case depth > 70:
+                return "#ea822c";
+            case depth > 50:
+                return "#ee9c00";
+            case depth > 30:
+                return "#eecc00";
+            case depth > 10:
+                return "#d4ee00";
+            default:
+                return "#98ee00";
+        }
+    };
+
+    // Create function for radius calculation for circle marker sizes
+    function setRadius(magnitude) {
+        if (magnitude === 0) {
+            return 1;
+        }
+
+        return magnitude * 4;
+    };
+
+    // Create function for marker style
+    function style(feature) {
+        return {
+            opacity: 1,
+            fillOpacity: 1,
+            fillColor: setColor(feature.geometry.coordinates[2]),
+            color: "#000000",
+            radius: setRadius(feature.properties.mag),
+            stroke: true,
+            weight: 0.5
+        };
+    };
 
     // Use geoJson to filter data
     L.geoJson(data, {
@@ -80,4 +117,7 @@ d3.json(url).then(function (data) {
         }
         // Add markers to earthquakes layer
     }).addTo(earthquakes);
+
+       // Add earthquakes layer to map
+   earthquakes.addTo(myMap);
 });
