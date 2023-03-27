@@ -127,7 +127,7 @@ d3.json(url).then(function (data) {
         };
     };
 
-    // Use geoJson to filter data
+    // Use geoJson to add circle markers locations/style and popups with earthquake information
     L.geoJson(data, {
         // Create circle markers using features with latitude and longitude
         pointToLayer: function (feature, latlng) {
