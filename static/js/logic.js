@@ -59,7 +59,7 @@ d3.json(url).then(function (data) {
     let features = data.features;
 
     // Display data features using console.log
-    console.log(features);
+    console.log("Features:", features);
 
     // Iterate through data features to extract values
     for (let i = 0; i < features.length; i++) {
@@ -73,6 +73,11 @@ d3.json(url).then(function (data) {
         depths.push(depth);
         mags.push(mag);
     };
+
+    // Display values in console and validate data 
+    console.log("Coordinates:", coords);
+    console.log("Depths:", depths);
+    console.log("Magnitudes:", mags);
 
     // Create function for color based on depth range
     function setColor(depth) {
@@ -150,10 +155,10 @@ d3.json(url).then(function (data) {
     legend.onAdd = function () {
         var div = L.DomUtil.create("div", "info legend");
 
-        // Set depthRanges
+        // Set depth ranges for each label
         var depthRanges = [-10, 10, 30, 50, 70, 90];
 
-        // Set colors
+        // Set colors for label squares
         var colors = [
             "#98ee00",
             "#d4ee00",
@@ -178,5 +183,26 @@ d3.json(url).then(function (data) {
 
 });
 
+// Assign tectonic url to a variable
+var url2 = "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json";
 
+d3.json(url2).then(function (tectonicData) {
+    console.log("Tectonic Data:", tectonicData);
 
+    // Create function for tectonic marker style
+    function style(feature) {
+        return {
+            color: "orange",
+            weight: 2.5
+        };
+    };
+
+    // Use geoJson to set style and add to tectonics layer
+    L.geoJson(tectonicData, {
+        style: style
+    })
+        .addTo(tectonics);
+
+    // Add tectonics layer to map
+    tectonics.addTo(myMap);
+});
