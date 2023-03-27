@@ -140,11 +140,11 @@ d3.json(url).then(function (data) {
             layer.bindPopup(
                 `<h2>Location: </h2>`
                 + `<h4>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h4> <hr>`
-                + `<h2><b>Magnitude: </b></h2>`
+                + `<h2>Magnitude: </h2>`
                 + `<h4>${feature.properties.mag}</h4> <hr>`
-                + `<h2><b>Depth: </b></h2>`
+                + `<h2>Depth: </h2>`
                 + `<h4>${feature.geometry.coordinates[2]}</h4> <hr>`
-                + `<h2><b>Date & Time: </b></h2>`
+                + `<h2>Date & Time: </h2>`
                 + `<h4>${new Date(feature.properties.time)}</h4> <hr>`
             );
         }
