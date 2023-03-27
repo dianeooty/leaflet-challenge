@@ -86,7 +86,7 @@ d3.json(url).then(function (data) {
     console.log("Depths:", depths);
     console.log("Magnitudes:", mags);
 
-    // Create function for color based on depth range
+    // Create function with switch statements for color based on depth range
     function setColor(depth) {
         switch (true) {
             case depth > 90:
