@@ -17,7 +17,27 @@ var street = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 // Add street tile layer to map
 street.addTo(myMap);
 
+// Create layer groups 
+var tectonics = new L.LayerGroup();
 var earthquakes = new L.LayerGroup();
+
+// Create baseMaps
+var baseMaps = {
+    "Earthquakes": street,
+    "Topography": topo,
+
+};
+
+// Create overlays
+var overlays = {
+    "Tectonic Plates": tectonics,
+    "Earthquakes": earthquakes
+};
+
+// Set the layer groups and add control to map
+L.control
+    .layers(baseMaps, overlays, { collapsed: false })
+    .addTo(myMap);
 
 // Create a variable for url
 var url = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson";
