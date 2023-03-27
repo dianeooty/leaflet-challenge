@@ -135,7 +135,7 @@ d3.json(url).then(function (data) {
     console.log("Depths:", depths);
     console.log("Magnitudes:", mags);
 
-    // Create function with switch statements for color based on depth range
+    // Create function using switch statements to return color based on depth range
     function setColor(depth) {
         switch (true) {
             case depth > 90:
@@ -175,7 +175,7 @@ d3.json(url).then(function (data) {
         };
     };
 
-    // Use geoJson to filter data
+    // Use geoJson to add circle markers locations/style and popups with earthquake information
     L.geoJson(data, {
         // Create circle markers using features with latitude and longitude
         pointToLayer: function (feature, latlng) {
@@ -188,11 +188,11 @@ d3.json(url).then(function (data) {
             layer.bindPopup(
                 `<h2>Location: </h2>`
                 + `<h4>${feature.properties.place[0].toUpperCase() + feature.properties.place.substring(1)}</h4> <hr>`
-                + `<h2><b>Magnitude: </b></h2>`
+                + `<h2>Magnitude: </h2>`
                 + `<h4>${feature.properties.mag}</h4> <hr>`
-                + `<h2><b>Depth: </b></h2>`
+                + `<h2>Depth: </h2>`
                 + `<h4>${feature.geometry.coordinates[2]}</h4> <hr>`
-                + `<h2><b>Date & Time: </b></h2>`
+                + `<h2>Date & Time: </h2>`
                 + `<h4>${new Date(feature.properties.time)}</h4> <hr>`
             );
         }
@@ -253,7 +253,7 @@ d3.json(url2).then(function (tectonicData) {
         };
     };
 
-    // Use geoJson to set style and add to tectonics layer
+    // Use geoJson to set style for linestrings and add to tectonics layer
     L.geoJson(tectonicData, {
         style: style
     })
@@ -262,6 +262,7 @@ d3.json(url2).then(function (tectonicData) {
     // Add tectonics layer to map
     tectonics.addTo(myMap);
 });
+
 ```
 
 
