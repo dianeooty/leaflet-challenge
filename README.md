@@ -14,7 +14,7 @@ This is my Module 15 Challenge for my Data Analytics and Visualization Boot Camp
 
 
 ## General Information
-In the first half of this challenge, a visualization for the earthquake data was created. To start, the map object and tile layers were added.  Then using d3.json, the url was accessed and earthquake data pulled for analysis.  Using geoJson, the markers and popups for each earthquake was added with functions to set the colers based on depths, radius based on magnitude and style for circle markers.  Then the layers were created and added to the map to allow for base layer changes and overlay changes. Next, the legend was added using CSS and HTML updates.  The second half of the project was to add the tectonic data that reflects the location of the plates on the map. Using d3.json to extract the tectonic data and geoJson to add the desired style for the linestrings. When iewing the earthquake locations and tectonic plates on the map, we can clearly see the connection between the occurences clustered mostly where the plates meet.
+In the first half of this challenge, a visualization for the earthquake data was created. To start, the map object and tile layers were added.  Then using d3.json, the url was passed to pull the earthquake data for analysis.  Using geoJson, the markers and popups for each earthquake were added using functions to set up the colors based on depths, radius size based on magnitude and styling for circle markers.  Then, the layers were created and added to the map sllowing for base layer and overlay changes. Next, the legend was added by updating the CSS and HTML.  The second half of the project was to add the tectonic data to reflect the location of the plates on the map. I extracted the tectonic data with d3.json and then geoJson to add the desired style for the linestrings. When viewing both the earthquake and tectonic overlays on the map, it is clear that there is a strong correlation between the earthquake locations and tectonic plates. The occurences are mostly clustered along the borders of the tectonic plates.
 
 
 ## Technologies Used
@@ -43,7 +43,7 @@ In the first half of this challenge, a visualization for the earthquake data was
 All files used for this project can be found in the folders above. Including the js, HTML and CSS. 
 
 ## Usage
-Visit the site at https://dianeooty.github.io/leaflet-challenge/ to view the different maps that reflects all the earthquake locations that occurred in the past 7 days and the tectonic plate locations.  Each marker reflects the location, magnitude, depth and date&time of the earthquake.  The data is pulled from "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson" which updates every 5 minutes and the second data pulled from "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json".
+Visit the site at https://dianeooty.github.io/leaflet-challenge/ to view the different maps that reflects all the earthquake locations that occurred in the past 7 days and the tectonic plate locations.  Each marker reflects the location, magnitude, depth and date&time of the earthquake.  The data pulls from "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson" which updates every 5 minutes and the second data pulls from "https://raw.githubusercontent.com/fraxen/tectonicplates/master/GeoJSON/PB2002_boundaries.json".
 
 ```
 // Create the map object
