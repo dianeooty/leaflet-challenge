@@ -36,6 +36,9 @@ In the first half of this challenge, a visualization for the earthquake data was
 ![1](https://user-images.githubusercontent.com/117790100/228356544-43efd545-0452-4aec-8c4a-40fe92c3100e.png)
 ![2](https://user-images.githubusercontent.com/117790100/228028326-f75e5d39-bf06-4a1d-a032-88118211bdea.png)
 ![4](https://user-images.githubusercontent.com/117790100/228356550-ea598982-b31c-4511-a7d0-2f5e9b179193.png)
+![3](https://user-images.githubusercontent.com/117790100/228357109-cefc3fa5-8f00-49d5-8e54-c6f1d43cc967.png)
+![4](https://user-images.githubusercontent.com/117790100/228357119-8cfaf7d4-0b36-4e83-aa42-40e67b4a0d6b.png)
+![6](https://user-images.githubusercontent.com/117790100/228357123-3ce05641-fefb-4c22-a090-91409aa8200b.png)
 
 
 ## Setup
