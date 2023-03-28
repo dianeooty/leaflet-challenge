@@ -272,7 +272,6 @@ Project is complete and no longer being worked on.
 
 ## Acknowledgements
 - Many thanks to my instructional team and tutor, David Chao.
-- Satellite tile layer referenced from https://developers.google.com/maps/documentation/ios-sdk/tiles"
 
 
 ## Contact
