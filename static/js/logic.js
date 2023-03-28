@@ -15,9 +15,11 @@ var basic = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{
 	attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 });
 
+// Referenced from https://github.com/leaflet-extras/leaflet-providers
 var satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
 	attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 });
+
 
 // Add satellite tile layer to map
 satellite.addTo(myMap);
