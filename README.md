@@ -1,5 +1,5 @@
-# leaflet-challenge
-This is my Module 15 Challenge for my Data Analytics and Visualization Boot Camp.  The assigned task is to create a visualization for the earthquakes and tectonic plates datasets.
+# usgs-earthquakes-analysis
+ The assigned task is to create a visualization for the earthquakes and tectonic plates datasets from USGS.
 
 ## Table of Contents
 * [General Info](#general-information)
@@ -14,7 +14,7 @@ This is my Module 15 Challenge for my Data Analytics and Visualization Boot Camp
 
 
 ## General Information
-In the first half of this challenge, a visualization for the earthquake data was created. To start, the map object and tile layers were added.  Then using d3.json, the url was passed to pull the earthquake data for analysis.  Using geoJson, the markers and popups for each earthquake were added using functions to set up the colors based on depths, radius size based on magnitude and styling for circle markers.  Then, the layers were created and added to the map sllowing for base layer and overlay changes. Next, the legend was added by updating the CSS and HTML.  The second half of the project was to add the tectonic data to reflect the location of the plates on the map. I extracted the tectonic data with d3.json and then geoJson to add the desired style for the linestrings. When viewing both the earthquake and tectonic overlays on the map, it is clear that there is a strong correlation between the earthquake locations and tectonic plates. The occurences are mostly clustered along the borders of the tectonic plates.
+In the first half of this project, a visualization for the earthquake data was created. To start, the map object and tile layers were added.  Then using d3.json, the url was passed to pull the earthquake data for analysis.  Using geoJson, the markers and popups for each earthquake were added using functions to set up the colors based on depths, radius size based on magnitude and styling for circle markers.  Then, the layers were created and added to the map sllowing for base layer and overlay changes. Next, the legend was added by updating the CSS and HTML.  The second half of the project was to add the tectonic data to reflect the location of the plates on the map. I extracted the tectonic data with d3.json and then geoJson to add the desired style for the linestrings. When viewing both the earthquake and tectonic overlays on the map, it is clear that there is a strong correlation between the earthquake locations and tectonic plates. The occurences are mostly clustered along the borders of the tectonic plates.
 
 
 ## Technologies Used
@@ -273,7 +273,7 @@ Project is complete and no longer being worked on.
 
 
 ## Acknowledgements
-- Many thanks to my instructional team and tutor, David Chao.
+- Many thanks to my instructional team and David Chao.
 
 
 ## Contact
